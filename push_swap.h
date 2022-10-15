@@ -16,6 +16,12 @@ void					ft_rot(t_list *lst, char c);
 void					ft_push(t_list *lst1, t_list *lst2, char c);
 void					create_lst(t_list *lst, size_t size);
 void					create_lst_s(t_list *lst, int *data, size_t size);
+char					**ft_split(const char *s, char c);
+char					*ft_substr(char const *s, unsigned int start, size_t len);
+int						ft_tablnum(char **arv);
+void					ft_error(void);
+void					ft_free_error(int *tab);
+void					ft_free(char **tab, int size);
 
 struct	s_list
 {

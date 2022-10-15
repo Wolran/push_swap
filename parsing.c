@@ -40,13 +40,6 @@ static int	ft_is_num(char *str)
 	return (1);
 }
 
-static int	*ft_error(int *tab)
-{
-	free(tab);
-	write(2, "Error\n", 6);
-	return (0);
-}
-
 static int	ft_duplicate(int *tab)
 {
 	int	i;
@@ -72,22 +65,22 @@ int	*ft_pars(int arc, char **arv)
 	int			i;
 	int			*tab;
 	long long	res;
-
-	tab = malloc(sizeof(int) * arc - 1);
+	
+	tab = malloc(sizeof(int) * (arc));
 	if (!tab)
 		return (0);
-	i = 1;
-	while (i < arc)
+	i = 0;
+	while (i < arc - 1)
 	{
 		if (!(ft_is_num(arv[i])))
-			return (ft_error(tab));
+			return (ft_free_error(tab), NULL);
 		res = ft_atol(arv[i]);
 		if (res > INT_MAX || res < INT_MIN)
-			return (ft_error(tab));
-		tab[i - 1] = (int)res;
+			return (ft_free_error(tab), NULL);
+		tab[i] = (int)res;
 		i++;
 	}
 	if ((ft_duplicate(tab)) == 0)
-		return (ft_error(tab));
+		return (ft_free_error(tab), NULL);
 	return (tab);
 }

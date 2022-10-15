@@ -1,17 +1,17 @@
 #include "push_swap.h"
 
-// void	ft_put_tab(int *tab, size_t size)
-// {
-	// size_t	i;
+void	ft_put_tab(int *tab, size_t size)
+{
+	size_t	i;
 
-	// i = 0;
-	// while (i < size)
-	// {
-		// printf("%d,", tab[i]);
-		// i++;
-	// }
-	// printf("\n");
-// }
+	i = 0;
+	while (i < size)
+	{
+		printf("%d,", tab[i]);
+		i++;
+	}
+	printf("\n");
+}
 
 void	ft_swap(int *a, int *b)
 {
@@ -59,4 +59,25 @@ void	ft_push(t_list *lst1, t_list *lst2, char c)
 	lst2->size++;
 	lst1->size--;
 	printf("p%c\n", c);
+}
+
+int	ft_tablnum(char **arv)
+{
+	int	i;
+
+	i = 0;
+	while (arv[i])
+		i++;
+	return (i);
+}
+
+void	ft_free_error(int *tab)
+{
+	free(tab);
+	write(2, "Error\n", 6);
+}
+
+void	ft_error(void)
+{
+	write(2, "Error\n", 6);
 }
