@@ -1,6 +1,6 @@
 # push_swap
 
-(split ok)
+(makefile)
 
 version la moins optimiser possible.
 
