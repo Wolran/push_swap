@@ -8,6 +8,7 @@ FILES := push_swap.c \
   ft_substr.c \
   ft_split.c \
   autre.c \
+  autre2.c \
 
 OBJDIR   := objs
 SRCDIR   := srcs

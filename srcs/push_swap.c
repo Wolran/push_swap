@@ -38,13 +38,15 @@ static void	ft_sort_solve(t_list *a)
 	}
 }
 
-static int	ft_arc2_split(int arc, char **arv, int *tab, t_list lst_a)
+static int	ft_arc2_split(int arc, char **arv, t_list lst_a)
 {
+	int	*tab;
+
 	if (arc == 2)
 	{
 		arv = ft_split(arv[1], 32);
 		if (!arv)
-			return(ft_error(), 1); 
+			return (ft_error(), 1);
 		arc = (ft_tablnum(arv) + 1);
 		tab = ft_pars(arc, arv);
 		if (!tab)
@@ -58,14 +60,13 @@ static int	ft_arc2_split(int arc, char **arv, int *tab, t_list lst_a)
 	return (0);
 }		
 
-
 int	main(int arc, char **arv)
 {
 	t_list	lst_a;
 	int		*tab;
 
 	if (arc == 2)
-		ft_arc2_split(arc, arv, tab, lst_a);
+		ft_arc2_split(arc, arv, lst_a);
 	else if (arc > 2)
 	{
 		arv = arv + 1;
@@ -76,7 +77,6 @@ int	main(int arc, char **arv)
 		ft_sort_solve(&lst_a);
 		ft_put_tab(lst_a.data, lst_a.size_max);
 		free(tab);
-		
 		return (0);
 	}
 	return (1);
