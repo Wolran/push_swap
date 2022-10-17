@@ -1,6 +1,6 @@
 # push_swap
 
-(makefile)
+(makefile + norm)
 
 version la moins optimiser possible.
 
