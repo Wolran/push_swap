@@ -1,64 +1,72 @@
 #include "push_swap.h"
 
-void	ft_create_lst(t_list *lst, size_t size)
+t_list ft_bin(t_list *ancien_a)
 {
-	lst->data = malloc(sizeof(int) * size);
-	lst->size_max = size;
-	lst->size = 0;
-}
+	size_t i;
+	int j;
+	size_t k;
+	t_list a;
 
-void	ft_create_lst_s(t_list *lst, int *data, size_t size)
-{
-	lst->data = data;
-	lst->size_max = size;
-	lst->size = size;
-}
 
-static void	ft_sort_solve(t_list *a)
-{
-	t_list	b;
-	int		i;
-	size_t	j;
-
-	ft_create_lst(&b, a->size_max);
-	j = 0;
-	while (j < a->size_max)
+	ft_create_lst(&a, ancien_a->size_max);
+	ft_copy_lst(&a, ancien_a);
+	i = 0;
+	while (i < ancien_a->size)
 	{
-		i = ft_smallest(a);
-		while (a->data[a->size - 1] != i)
-			ft_rot(a, 'a');
-		ft_push(a, &b, 'a');
-		j++;
+		k = -1;
+		j = ft_smallest(ancien_a);
+		while (++k <= ancien_a->size_max)
+		{
+			if (j == ancien_a->data[k])
+			{	
+				ft_replace(&a, ancien_a, j, k);
+				ft_minustab(ancien_a, k);
+				break;
+			}
+		}
 	}
-	j = 0;
-	while (j < a->size_max)
+	return (a);
+}
+void ft_replace(t_list *a, t_list *ancien_a, int j, int k)
+{
+	size_t source;
+	
+	ancien_a->data[k] = ft_trans_bin();
+	source = -1;
+	while (++source < a->size_max)
 	{
-		ft_push(&b, a, 'b');
-		j++;
+		if (j == a->data[source])
+		{
+			a->data[source] = ancien_a->data[k];
+			break;
+		}
+		a->size = a->size_max;
 	}
 }
 
 static int	ft_arc2_split(int arc, char **arv, t_list lst_a)
 {
-	int	*tab;
+	int		*tab;
 
 	if (arc == 2)
 	{
 		arv = ft_split(arv[1], 32);
 		if (!arv)
-			return (ft_error(), 1);
+			return(ft_error(), 1); 
 		arc = (ft_tablnum(arv) + 1);
 		tab = ft_pars(arc, arv);
 		if (!tab)
 			return (ft_free(arv, arc - 1), 1);
 		ft_create_lst_s(&lst_a, tab, arc - 1);
-		ft_sort_solve(&lst_a);
-		ft_put_tab(lst_a.data, lst_a.size_max);
+		lst_a = ft_bin(&lst_a);
+		//ft_sort_solve(&lst_a);
+		ft_put_tab(lst_a.data, lst_a.size);
 		free(tab);
 		ft_free(arv, arc - 1);
 	}
 	return (0);
 }		
+
 
 int	main(int arc, char **arv)
 {
@@ -74,9 +82,11 @@ int	main(int arc, char **arv)
 		if (!tab)
 			return (1);
 		ft_create_lst_s(&lst_a, tab, arc - 1);
+		lst_a = ft_bin(&lst_a);
 		ft_sort_solve(&lst_a);
 		ft_put_tab(lst_a.data, lst_a.size_max);
 		free(tab);
+		
 		return (0);
 	}
 	return (1);

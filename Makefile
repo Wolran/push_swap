@@ -7,8 +7,12 @@ FILES := push_swap.c \
   parsing.c \
   ft_substr.c \
   ft_split.c \
-  autre.c \
-  autre2.c \
+  solve.c \
+  sort.c \
+  sort2.c \
+  utils.c \
+  utils2.c \
+  utils_struct.c \
 
 OBJDIR   := objs
 SRCDIR   := srcs

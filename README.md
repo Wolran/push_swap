@@ -1,7 +1,5 @@
 # push_swap
 
-(makefile + norm)
+(sort + bin)
 
 version la moins optimiser possible.
-
-pense a du backtrack mais tres tres long sans opti

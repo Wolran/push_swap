@@ -12,17 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_free(char **tab, int size)
-{
-	while (size >= 0)
-	{
-		free(tab[size]);
-		size--;
-	}
-	free(tab);
-	tab = 0;
-}
-
 static int	ft_len_word(const char *s, char c)
 {
 	int	i;

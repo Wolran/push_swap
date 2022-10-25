@@ -65,7 +65,7 @@ int	*ft_pars(int arc, char **arv)
 	int			i;
 	int			*tab;
 	long long	res;
-
+	
 	tab = malloc(sizeof(int) * (arc));
 	if (!tab)
 		return (0);
