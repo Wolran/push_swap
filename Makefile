@@ -1,47 +1,28 @@
-NAME := push_swap
-CFLAGS := -Werror -Wall -Wextra
-INC=/usr/include
-INCLIB=$(INC)/../lib
 
-FILES := push_swap.c \
-  parsing.c \
-  ft_substr.c \
-  ft_split.c \
-  solve.c \
-  sort.c \
-  sort2.c \
-  utils.c \
-  utils2.c \
-  utils_struct.c \
+NAME = push_swap
 
-OBJDIR   := objs
-SRCDIR   := srcs
-SRCS	 := $(addprefix $(SRCDIR)/, $(FILES))
-OBJS	 := $(addprefix $(OBJDIR)/, $(FILES:.c=.o))
-INCLUDES := includes
+SRCS = srcs/main.c \
+		srcs/operations/ft_pa_pb.c srcs/operations/ft_ra_rb_rr.c \
+		srcs/operations/ft_rra_rrb_rrr.c srcs/operations/ft_sa_sb_ss.c \
+		srcs/utils/free_tab.c srcs/utils/ft_parse_atoi.c srcs/utils/ft_stacks.c \
+		srcs/utils/print.c srcs/utils/ft_check_sorted.c \
+		srcs/utils/find_min.c srcs/utils/ft_split.c\
+		srcs/sort/utils/push_to_b.c srcs/sort/utils/push_to_a.c\
+		srcs/sort/utils/find_index.c\ srcs/utils/ft_isdigit.c\
 
-all: $(NAME) 
+OBJ = ${SRCS:.c=.o}
 
-$(NAME): $(OBJDIR) $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -L$(INCLIB)
+CC = gcc
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
-	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
+all: $(NAME)
 
-$(OBJDIR):
-	mkdir -p $@
+$(NAME): $(OBJ)
+	$(CC) -Wall -Werror -Wextra $(OBJ) -I ./includes/ -o $(NAME)
 
 clean:
-	@${RM} ${OBJS}
+	rm -rf $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-	@${RM} ${NAME}
+	rm -rf $(NAME) $(BONUS_NAME)
 
 re: fclean all
-
-norm:
-	norminette $(SRCS)
-	norminette $(INCLUDES)
-
-	
-.PHONY: all clean fclean re

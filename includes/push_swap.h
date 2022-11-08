@@ -1,57 +1,51 @@
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
-# include <string.h>
 # include <stdlib.h>
-# include <limits.h>
 # include <unistd.h>
 
-/*			DEFFINE			*/
-typedef struct s_list	t_list;
+# define R 0
+# define RR 1
 
+typedef struct s_info
+{
+	char	stack_name;
+	int		min;
+}				t_info;
 
-/*			SOLVE			*/
-int						*ft_pars(int arc, char **arv);
-void					ft_put_tab(int *tab, size_t size);
-int						ft_trans_bin(void);
-void					ft_replace(t_list *a, t_list *ancien_a, int j, int k);
-void					ft_sort_solve(t_list *a);
-
-
-/*			UTILS			*/
-void					ft_swap(int *a, int *b);
-size_t					ft_smallest(t_list *lst);
-size_t					ft_highlest(t_list *lst);
-char					**ft_split(const char *s, char c);
-char					*ft_substr(char const *s, unsigned int start, size_t len);
-int						ft_tablnum(char **arv);
-void					ft_error(void);
-void					ft_free_error(int *tab);
-void					ft_free(char **tab, int size);
-
-
-/*			SORT			*/
-void					ft_swap_first(t_list *lst, char c);
-void					ft_ss(t_list *lst1, t_list *lst2);
-void					ft_push(t_list *lst1, t_list *lst2, char c);
-void					ft_rot(t_list *lst, char c);
-void					ft_rr(t_list *lst1, t_list *lst2);
-void					ft_invers_rot(t_list *lst, char c);
-void					ft_rrr(t_list *lst1, t_list *lst2);
-
-
-/*			STRUCT			*/
-void					ft_copy_lst(t_list *lst, t_list *lst2);
-void					ft_create_lst_s(t_list *lst, int *data, size_t size);
-void					ft_create_lst(t_list *lst, size_t size);
-void					ft_minustab(t_list *lst, size_t index);
-
-struct					s_list
+typedef struct s_stack
 {
 	int		*data;
-	size_t	size;
-	size_t	size_max;
-};
+	int		size;
+	int		size_max;
+	t_info	info;
+}				t_stack;
+
+void	ft_putstr(char *str);
+void	ft_error(void);
+void	free_stacks(t_stack *a, t_stack *b);
+void	ft_swap(t_stack *src, int same);
+void	ft_swap_same(t_stack *a, t_stack *b, int check);
+void	ft_push(t_stack *src, t_stack *dst);
+void	ft_rotate(t_stack *src, int size, int same);
+void	ft_rotate_same(t_stack *a, t_stack *b, int check);
+void	ft_reverse_rotate(t_stack *src, int size, int same);
+void	ft_reverse_rotate_same(t_stack *a, t_stack *b, int check);
+void	push_to_b(t_stack *a, t_stack *b, int sort_size, int *tab);
+void	push_to_a(t_stack *a, t_stack *b);
+char	**ft_split(const char *s, char c);
+void	ft_free_tab(char **data, int size);
+int		ft_isdigit(int c);
+int		ft_parse_atoi(const char *s, int *res);
+int		ft_arr_sorted(t_stack stack);
+int		ft_create_stacks(t_stack *a, t_stack *b, t_stack *init, int check);
+int		ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v);
+int		ft_checker_args(t_stack *a, t_stack *b, t_stack *init, char **v);
+int		ft_arr_ready(t_stack stack);
+int		find_min(t_stack s);
+int		find_index(int num, int *tab, int size);
+int		ft_count_v(char **v);
+int		ft_unique(int *tab, int size);
 
 #endif
