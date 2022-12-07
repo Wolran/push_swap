@@ -1,22 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmuller <vmuller@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 19:10:18 by vmuller           #+#    #+#             */
+/*   Updated: 2022/12/06 19:41:25 by vmuller          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	ft_unique(int *tab, int size)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-			if (tab[i] == tab[j++])
-				return (0);
-		i++;
-	}
-	return (1);
-}
 
 static int	*ft_parse_args(char **v, int size)
 {
@@ -49,16 +43,6 @@ int	ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
 	return (1);
 }
 
-int ft_count_v(char **v)
-{
-	int i;
-	
-	i = 0;
-	while (v[i])
-		i++;
-	return (i);
-}
-
 int ft_split_arg(char **v, t_stack *init, t_stack *a, t_stack *b)
 {
 	v = ft_split(v[1], 32);
@@ -83,6 +67,8 @@ int	main(int c, char **v)
 	t_stack	b;
 	t_stack	init;
 	
+	if (c == 1)
+		return (0);
 	if (c == 2)
 		ft_split_arg(v, &init, &a, &b);
 	else if (c > 2)
@@ -92,12 +78,12 @@ int	main(int c, char **v)
 	else if (a.size <= 6)
 	{
 		a.info.min = find_min(a);
-		// need minisort(&a, &b);
+		minisort(&a, &b);
 	}
 	else
-		//need full_sort(&a, &b);
+		full_sort(&a, &b);
 	if (c == 2)
-		ft_free_data(v, init.size_max);
+		ft_free_data(v);
 	free_stacks(&a, &b);
 	return (0);
 }

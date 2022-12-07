@@ -1,6 +1,16 @@
-#include "../../../includes/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_index.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmuller <vmuller@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 19:09:40 by vmuller           #+#    #+#             */
+/*   Updated: 2022/12/06 19:10:56 by vmuller          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// util pour full sort
+#include "../../../includes/push_swap.h"
 
 int	find_index(int num, int *tab, int size)
 {

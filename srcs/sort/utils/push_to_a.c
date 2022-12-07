@@ -1,9 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_to_a.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmuller <vmuller@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 19:09:42 by vmuller           #+#    #+#             */
+/*   Updated: 2022/12/06 19:09:42 by vmuller          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
-
-
-// util pour fullsort 
-
 
 static int	max_num_s(t_stack *s)
 {
@@ -53,8 +60,8 @@ static int	search_rotate(t_stack *s, int max, int size)
 		size++;
 	free(tab);
 	if (i < size)
-		return (RR);
-	return (R);
+		return (1);
+	return (0);
 }
 
 void	push_to_a(t_stack *a, t_stack *b)
@@ -65,10 +72,10 @@ void	push_to_a(t_stack *a, t_stack *b)
 	{
 		max_num = max_num_s(b);
 		if (b->data[0] != max_num
-			&& search_rotate(b, max_num, b->size) == R)
+			&& search_rotate(b, max_num, b->size) == 0)
 			ft_rotate(b, b->size, 0);
 		else if (b->data[0] != max_num
-			&& search_rotate(b, max_num, b->size) == RR)
+			&& search_rotate(b, max_num, b->size) == 1)
 			ft_reverse_rotate(b, b->size, 0);
 		else
 			ft_push(b, a);
