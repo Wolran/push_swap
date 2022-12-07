@@ -45,7 +45,7 @@ void	full_sort(t_stack *a, t_stack *b);
 void	push_to_b(t_stack *a, t_stack *b, int sort_size, int *tab);
 void	push_to_a(t_stack *a, t_stack *b);
 char	**ft_split(const char *s, char c);
-void 	ft_free_data(char **data);
+void	ft_free_data(char **data);
 int		ft_isdigit(int c);
 int		ft_parse_atoi(const char *s, int *res);
 int		ft_arr_sorted(t_stack stack);

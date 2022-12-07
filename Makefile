@@ -18,7 +18,7 @@ CC = gcc
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -Wall -Werror -Wextra -g3 $(OBJ) -I ./includes/ -o $(NAME)
+	$(CC) -Wall -Werror -Wextra -g3 -I ./includes/ $(SRCS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ) $(BONUS_OBJ)
