@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmuller <vmuller@sutdent.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 08:47:51 by vmuller           #+#    #+#             */
-/*   Updated: 2022/12/09 08:47:51 by vmuller          ###   ########.fr       */
+/*   Created: 2022/12/09 08:48:03 by vmuller           #+#    #+#             */
+/*   Updated: 2022/12/09 08:48:03 by vmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/checker.h"
 
-void	ft_swap_a_b(t_stack *src)
+void	ft_reverse_rotate_a_b(t_stack *src, int size)
 {
 	int	temp;
+	int	temp_sec;
+	int	i;
 
-	if (!src || src->size < 2)
-		return ;
-	temp = src->data[0];
-	src->data[0] = src->data[1];
-	src->data[1] = temp;
+	temp = src->data[size - 1];
+	i = 0;
+	while (i < size)
+	{
+		temp_sec = src->data[i];
+		src->data[i] = temp;
+		temp = temp_sec;
+		i++;
+	}
 }
 
-void	ft_swap_same_a_b(t_stack *a, t_stack *b)
+void	ft_reverse_rotate_same_a_b(t_stack *a, t_stack *b)
 {
-	ft_swap(a);
-	ft_swap(b);
+	ft_reverse_rotate_a_b(a, a->size);
+	ft_reverse_rotate_a_b(b, b->size);
+
 }

@@ -12,14 +12,14 @@
 
 #include "../../includes/push_swap.h"
 
-static void	ft_move_back_array(t_stack *src, int size)
+void	ft_move_back_array(t_stack *src, int size)
 {
 	size += 1;
 	while (--size)
 		src->data[size] = src->data[size - 1];
 }
 
-static void	ft_move_top_array(t_stack *src, int size)
+void	ft_move_top_array(t_stack *src, int size)
 {
 	int	i;
 

@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
+#include <stdio.h>
 
-static int	ft_is_sort(t_stack *a)
+int	ft_is_sort(t_stack *a)
 {
 	int	i;
 
 	i = -1;
-	while (++i < a->size_max)
+	while (++i < a->size_max - 1)
 	{
 		if (a->data[i] > a->data[i + 1])
 			return (0);
@@ -26,20 +27,25 @@ static int	ft_is_sort(t_stack *a)
 
 }
 
-static void	ft_checker(t_stack *a, t_stack *b)
+void	ft_checker(t_stack *a, t_stack *b)
 {
-	char	*str
+	char	*str;
+	int		arg;
 
+	arg = 0;
 	str = get_next_line(1);
-	while (str != NULL)
+	while (str[0] != '\n')
 	{
+		arg++;
 		if_forest(str, a, b);
 		str = get_next_line(1);
 	}
+	free(str);
 	if (ft_is_sort(a) == 1)
 		write (1, "OK\n", 3);
 	else
 		write (1, "KO\n", 3);
+	printf("arg = %d\n", arg);
 }
 
 

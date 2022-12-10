@@ -6,7 +6,7 @@
 /*   By: vmuller <vmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:09:18 by vmuller           #+#    #+#             */
-/*   Updated: 2022/12/06 19:38:59 by vmuller          ###   ########.fr       */
+/*   Updated: 2022/12/10 01:01:12 by vmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,10 @@ int		find_index(int num, int *tab, int size);
 int		*ft_insertion_sort(t_stack a);
 int		ft_count_v(char **v);
 int		ft_unique(int *tab, int size);
+int		ft_nonsplit(char **v, t_stack *init, t_stack *a, t_stack *b);
+char	**ft_split_arg(char **v, t_stack *init, t_stack *a, t_stack *b);
+void	ft_move_top_array(t_stack *src, int size);
+void	ft_move_back_array(t_stack *src, int size);
+int		*ft_parse_args(char **v, int size);
 
 #endif

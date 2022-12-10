@@ -25,3 +25,5 @@ void	ft_rotate_same_a_b(t_stack *a, t_stack *b);
 void	ft_swap_a_b(t_stack *src);
 void	ft_swap_same_a_b(t_stack *a, t_stack *b);
 void	if_forest(char *str, t_stack *a, t_stack *b);
+
+#endif

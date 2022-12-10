@@ -75,7 +75,7 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	char		*str;
 	int			flag;
-	static int	size;
+	int	size;
 
 	size = 1;
 	buffer = ft_calloc((size + 1), sizeof(char));
