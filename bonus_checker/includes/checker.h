@@ -27,4 +27,3 @@ void	ft_swap_same_a_b(t_stack *a, t_stack *b);
 void	if_forest(char *str, t_stack *a, t_stack *b);
 
 #endif
-

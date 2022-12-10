@@ -34,4 +34,3 @@ void	push_to_b(t_stack *a, t_stack *b, int sort_size, int *tab)
 			ft_rotate(a, a->size, 0);
 	}
 }
-

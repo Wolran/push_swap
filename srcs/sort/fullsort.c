@@ -24,4 +24,3 @@ void	full_sort(t_stack *a, t_stack *b)
 	push_to_a(a, b);
 	free(tab);
 }
-

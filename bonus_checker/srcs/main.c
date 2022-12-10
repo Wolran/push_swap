@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmuller <vmuller@sutdent.42.fr>            +#+  +:+       +#+        */
+/*   By: vmuller <vmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 08:48:18 by vmuller           #+#    #+#             */
-/*   Updated: 2022/12/09 08:48:18 by vmuller          ###   ########.fr       */
+/*   Updated: 2022/12/10 08:05:06 by vmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	ft_is_sort(t_stack *a)
 			return (0);
 	}
 	return (1);
-
 }
 
 void	ft_checker(t_stack *a, t_stack *b)
@@ -38,6 +37,7 @@ void	ft_checker(t_stack *a, t_stack *b)
 	{
 		arg++;
 		if_forest(str, a, b);
+		free(str);
 		str = get_next_line(1);
 	}
 	free(str);
@@ -45,10 +45,9 @@ void	ft_checker(t_stack *a, t_stack *b)
 		write (1, "OK\n", 3);
 	else
 		write (1, "KO\n", 3);
-	printf("arg = %d\n", arg);
 }
 
-
+/*     printf("arg = %d\n", arg);    */
 
 int	main(int c, char **v)
 {
@@ -72,4 +71,3 @@ int	main(int c, char **v)
 		ft_free_data(v);
 	return (free_stacks(&a, &b), 0);
 }
-

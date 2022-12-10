@@ -40,4 +40,3 @@ int	main(int c, char **v)
 		ft_free_data(v);
 	return (free_stacks(&a, &b), 0);
 }
-

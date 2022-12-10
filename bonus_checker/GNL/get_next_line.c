@@ -72,10 +72,10 @@ static void	*ft_calloc(size_t elcount, size_t elsize)
 
 char	*get_next_line(int fd)
 {
-	char		*buffer;
-	char		*str;
-	int			flag;
-	int	size;
+	char	*buffer;
+	char	*str;
+	int		flag;
+	int		size;
 
 	size = 1;
 	buffer = ft_calloc((size + 1), sizeof(char));
@@ -93,7 +93,6 @@ char	*get_next_line(int fd)
 	free(buffer);
 	return (str);
 }
-
 /*
 # include <stdio.h>
 # include <sys/types.h>
@@ -109,4 +108,3 @@ int	main(void)
 		printf("%s", get_next_line(fd));
 }
 */
-

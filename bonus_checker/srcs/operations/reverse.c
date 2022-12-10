@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vmuller <vmuller@sutdent.42.fr>            +#+  +:+       +#+        */
+/*   By: vmuller <vmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 08:48:03 by vmuller           #+#    #+#             */
-/*   Updated: 2022/12/09 08:48:03 by vmuller          ###   ########.fr       */
+/*   Updated: 2022/12/10 08:05:04 by vmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,4 @@ void	ft_reverse_rotate_same_a_b(t_stack *a, t_stack *b)
 {
 	ft_reverse_rotate_a_b(a, a->size);
 	ft_reverse_rotate_a_b(b, b->size);
-
 }
