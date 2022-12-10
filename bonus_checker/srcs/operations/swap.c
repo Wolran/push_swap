@@ -28,3 +28,4 @@ void	ft_swap_same_a_b(t_stack *a, t_stack *b)
 	ft_swap_a_b(a);
 	ft_swap_a_b(b);
 }
+

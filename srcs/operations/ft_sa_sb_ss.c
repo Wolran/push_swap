@@ -34,3 +34,4 @@ void	ft_swap_same(t_stack *a, t_stack *b, int check)
 	if (!check)
 		ft_putstr("ss\n");
 }
+

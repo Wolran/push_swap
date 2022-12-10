@@ -37,3 +37,4 @@ void	if_forest(char *str, t_stack *a, t_stack *b)
 	else if (str[0] == 'r' && str[1] == 'r')
 		ft_rotate_same_a_b(a, b);
 }
+
