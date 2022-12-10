@@ -43,5 +43,5 @@ la pile b. Le dernier élément devient le premier.\
 ## Exemple
 
 ```shell
-ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
+ARG="4 67 3 87 23"; ./push_swap $ARG
 ```
