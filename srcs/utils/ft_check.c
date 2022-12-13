@@ -12,7 +12,7 @@
 
 #include "../../includes/push_swap.h"
 
-int	*ft_parse_args(char **v, int size)
+int	*ft_parse_args(char **v, int size, t_stack *init)
 {
 	int	*tab;
 	int	i;
@@ -24,7 +24,12 @@ int	*ft_parse_args(char **v, int size)
 	while (i < size)
 	{
 		if (!ft_parse_atoi(v[i], &tab[i]))
+		{
+			if (init->info.split == 1)
+				ft_free_data(v);
+			free(tab);
 			ft_error();
+		}
 		i++;
 	}
 	return (tab);
@@ -32,7 +37,7 @@ int	*ft_parse_args(char **v, int size)
 
 int	ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
 {
-	init->data = ft_parse_args(v, init->size_max);
+	init->data = ft_parse_args(v, init->size_max, init);
 	if (!init->data || !ft_unique(init->data, init->size_max))
 	{
 		free(init->data);
@@ -49,6 +54,7 @@ char	**ft_split_arg(char **v, t_stack *init, t_stack *a, t_stack *b)
 	if (!v)
 		return (NULL);
 	init->size_max = ft_count_v(v);
+	init->info.split = 1;
 	if (!ft_check_args(a, b, init, v))
 		return (NULL);
 	return (v);
@@ -56,6 +62,7 @@ char	**ft_split_arg(char **v, t_stack *init, t_stack *a, t_stack *b)
 
 int	ft_nonsplit(char **v, t_stack *init, t_stack *a, t_stack *b)
 {
+	init->info.split = 0;
 	if (!ft_check_args(a, b, init, v + 1))
 		return (0);
 	return (1);

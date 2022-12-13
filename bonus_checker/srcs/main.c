@@ -36,7 +36,12 @@ void	ft_checker(t_stack *a, t_stack *b)
 	while (str[0] != '\n')
 	{
 		arg++;
-		if_forest(str, a, b);
+		if (if_forest(str, a, b) == 0)
+		{
+			free(str);
+			free_stacks(a, b);
+			ft_error();
+		}
 		free(str);
 		str = get_next_line(1);
 	}
@@ -55,7 +60,7 @@ int	main(int c, char **v)
 	t_stack	b;
 	t_stack	init;
 
-	if (c == 1)
+	if (c == 1 || v[1][0] == '\0')
 		return (0);
 	if (c == 2)
 		v = ft_split_arg(v, &init, &a, &b);
@@ -66,8 +71,8 @@ int	main(int c, char **v)
 	}
 	if (ft_arr_sorted(a) && ft_arr_ready(a))
 		return (free_stacks(&a, &b), 0);
-	ft_checker(&a, &b);
 	if (c == 2)
 		ft_free_data(v);
+	ft_checker(&a, &b);
 	return (free_stacks(&a, &b), 0);
 }

@@ -20,6 +20,7 @@ typedef struct s_info
 {
 	char	stack_name;
 	int		min;
+	int		split;
 }				t_info;
 
 typedef struct s_stack
@@ -62,6 +63,6 @@ int		ft_nonsplit(char **v, t_stack *init, t_stack *a, t_stack *b);
 char	**ft_split_arg(char **v, t_stack *init, t_stack *a, t_stack *b);
 void	ft_move_top_array(t_stack *src, int size);
 void	ft_move_back_array(t_stack *src, int size);
-int		*ft_parse_args(char **v, int size);
+int		*ft_parse_args(char **v, int size, t_stack *init);
 
 #endif
