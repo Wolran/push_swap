@@ -18,11 +18,11 @@ int	main(int c, char **v)
 	t_stack	b;
 	t_stack	init;
 
-	if (c == 1 || v[1][0] == '\0')
+	if (c <= 1 || v[1][0] == '\0')
 		return (0);
 	if (c == 2)
 		v = ft_split_arg(v, &init, &a, &b);
-	else if (c > 2)
+	else
 	{
 		init.size_max = c - 1;
 		ft_nonsplit(v, &init, &a, &b);

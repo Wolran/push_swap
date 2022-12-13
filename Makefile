@@ -36,10 +36,10 @@ all: $(NAME)
 bonus: $(BONUS_NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) -Wall -Werror -Wextra -g3 -I ./includes/ $(MAIN_SRCS) $(SRCS)
+	$(CC) -o $(NAME) -Wall -Werror -Wextra -I ./includes/ $(MAIN_SRCS) $(SRCS)
 	
 $(BONUS_NAME): $(BONUS_OBJ)
-	$(CC) -o $(BONUS_NAME) -Wall -Werror -Wextra -g3 $(INC) $(BONUS_SRCS) $(SRCS)
+	$(CC) -o $(BONUS_NAME) -Wall -Werror -Wextra $(INC) $(BONUS_SRCS) $(SRCS)
 
 clean:
 	rm -rf $(OBJ) $(BONUS_OBJ)
