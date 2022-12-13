@@ -69,10 +69,10 @@ int	main(int c, char **v)
 		init.size_max = c - 1;
 		ft_nonsplit(v, &init, &a, &b);
 	}
-	if (ft_arr_sorted(a) && ft_arr_ready(a))
-		return (free_stacks(&a, &b), 0);
 	if (c == 2)
 		ft_free_data(v);
+	if (ft_arr_sorted(a) && ft_arr_ready(a))
+		return (free_stacks(&a, &b), 0);
 	ft_checker(&a, &b);
 	return (free_stacks(&a, &b), 0);
 }
