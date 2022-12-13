@@ -33,7 +33,7 @@ void	ft_checker(t_stack *a, t_stack *b)
 
 	arg = 0;
 	str = get_next_line(1);
-	while (str[0] != '\n')
+	while (str != NULL)
 	{
 		arg++;
 		if (if_forest(str, a, b) == 0)
