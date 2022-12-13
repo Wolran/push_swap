@@ -6,9 +6,9 @@ Ce projet vous demande de trier des données sur une pile, avec un set d’instr
 ### Règles :
 • Le jeu est constitué de 2 piles nommées a et b.\
 • Au départ :\
-◦ La pile a contient une quantité aléatoire de négatif et/ou des nombres positifs\
+• La pile a contient une quantité aléatoire de négatif et/ou des nombres positifs\
 qui ne peuvent pas être dupliqués.\
-◦ La pile b est vide.\
+• La pile b est vide.\
 • Le but du jeu est de trier les nombres de la pile a par ordre croissant.
 
 
