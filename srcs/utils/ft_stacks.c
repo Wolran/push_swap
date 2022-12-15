@@ -6,7 +6,7 @@
 /*   By: vmuller <vmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:10:10 by vmuller           #+#    #+#             */
-/*   Updated: 2022/12/06 19:10:56 by vmuller          ###   ########.fr       */
+/*   Updated: 2022/12/15 14:01:34 by vmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ static int	ft_gen_b(t_stack *b, int size, int check)
 
 void	free_stacks(t_stack *a, t_stack *b)
 {
-	free(a->data);
-	free(b->data);
+	if (a->data)
+		free(a->data);
+	if (b->data)
+		free(b->data);
 }
 
 int	ft_create_stacks(t_stack *a, t_stack *b, t_stack *init, int check)
