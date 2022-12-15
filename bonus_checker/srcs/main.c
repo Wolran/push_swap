@@ -35,13 +35,13 @@ void	ft_checker(t_stack *a, t_stack *b)
 	str = get_next_line(1);
 	while (str != NULL)
 	{
-		arg++;
 		if (if_forest(str, a, b) == 0)
 		{
 			free(str);
 			free_stacks(a, b);
 			ft_error();
 		}
+		arg++;
 		free(str);
 		str = get_next_line(1);
 	}
