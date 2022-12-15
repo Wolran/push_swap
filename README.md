@@ -43,5 +43,24 @@ la pile b. Le dernier élément devient le premier.\
 ## Exemple
 
 ```shell
-ARG="4 67 3 87 23"; ./push_swap $ARG
+ARG="4 67 3 87 98 23"; ./push_swap $ARG | cat -e
+```
+
+## Resultat
+```shell
+pb$
+pb$
+pb$
+rra$
+sb$
+rb$
+pa$
+ra$
+pa$
+ra$
+ra$
+pa$
+ra$
+ra$
+ra$
 ```
