@@ -1,5 +1,7 @@
 # push_swap
 
+## 125/100
+
 ### Objectif
 Ce projet vous demande de trier des données sur une pile, avec un set d’instructions limité, en moins de coups possibles.
 
@@ -65,4 +67,3 @@ ra$
 ra$
 ```
 
-## 125/100
